@@ -1,0 +1,235 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+  padding-top: 100px;
+  background : url("bg.jpg");
+  //background: #2A7AA3;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 600px;
+  font-family: 'Press Start 2P', sans-serif;
+}
+#robot{
+  background : url("robot.svg");
+  background-size: 520px 520px;
+  width: 630px;
+  height: 630px;
+  position: absolute;
+  left: 55%;
+  //background-attachment: fixed;
+  //background-repeat: no-repeat;
+  //background-position: center center;
+}
+#robot_nav{
+  background : url("robot.svg");
+  background-size: 184%;
+  width: 40px;
+  height: 60px;
+  margin-right: 10px;
+  float: left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Source Code Pro', sans-serif;
+}
+a{
+  color: $navbar-color;
+  font-size: 1rem;
+}
+label{
+  color: white;
+  font-size: 1rem;
+}
+em{
+  font-size: 11px;
+}
+.vis_hidden{
+  visibility: hidden;
+}
+.navbar {
+  border          : none;
+  background-color: #F0AD4E;
+  min-height: 80px;
+  .container{
+    margin-top: 15px;
+  }
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-family: 'Press Start 2P', sans-serif !important;
+  font-size: 21px;
+}
+
+.navbar-brand,
+.navbar-default .navbar-nav > li > a {
+  color      : #fff !important;
+
+  &:hover {
+    color: $bg-color !important;
+  };
+}
+
+.avatar {
+  border: 1px solid $border-color;
+  width : 50px;
+  height: 50px;
+}
+
+.cover {
+  width                : 100%;
+  height               : 400px;
+  background-repeat    : no-repeat;
+  background-attachment: fixed;
+  background-position  : center;
+}
+
+.activity {
+  background   : white;
+  border       : 1px solid $border-color;
+  border-radius: 3px;
+  padding      : 10px;
+  margin       : 10px;
+}
+
+.name {
+  display    : inline-block;
+  font-size  : $default-font-size;
+  margin-left: 10px;
+}
+
+.action {
+  font-size  : $default-font-size;
+  margin-left: 2px;
+}
+
+.created-at {
+  color     : $light-text-color;
+  font-size : $small-font-size;
+  margin-top: 15px;
+}
+
+.btn {
+  padding    : 10px 20px;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: $navbar-color;
+}
+.btn-success{
+  background: #F0AD4E;
+  border: none;
+}
+.btn-sm {
+  padding: 7px 15px;
+  border : none;
+}
+
+div.editable {
+  height    : 65px;
+  max-height: 65px;
+  overflow-y: scroll;
+}
+.form-control{
+  font-size: 11px;
+}
+div.editable,
+input[type="email"],
+input[type="password"],
+input[type="text"],
+textarea {
+  box-shadow: none !important;
+  border    : 2px solid #ccc !important;
+
+  &:focus {
+    border: 2px solid #888 !important;
+  };
+}
+
+[placeholder]:empty:before {
+  content: attr(placeholder);
+  color  : $light-text-color;
+}
+
+[placeholder]:empty:focus:before {
+  content: "";
+}
+
+.alert-fixed {
+  position   : fixed;
+  top        : 0;
+  left       : 0;
+  margin-left: 32%;
+  margin-top : 30px;
+  width      : 450px;
+  z-index    : 10000;
+  text-align : center;
+  padding    : 5px 25px;
+}
+
+.liked {
+  color: $liked-color !important;
+}
+
+.points span {
+  padding         : 5px;
+  background-color: $bg-color;
+  color           : $light-text-color;
+  display         : inline-block;
+  font-size       : $small-font-size;
+  margin-top      : 10px;
+  margin-right    : 10px;
+}
+
+.activity-event,
+.activity-post,
+.event,
+.post {
+  .actions {
+    margin-top : 10px;
+    padding-top: 10px;
+    border-top : 1px solid $border-color;
+
+    a,
+    button {
+      font-family     : 'Source Code Pro', sans-serif;
+      background-color: $border-color;
+      color           : #555;
+
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+#links,
+#user-info {
+  h5 {
+    border-bottom: 1px solid $border-color;
+    padding      : 15px 10px;
+    margin       : 0;
+  }
+
+  i {
+    font-size   : 1.75rem;
+    margin-right: 20px;
+  }
+}
+
+p {
+  font-size  : 1.65rem;
+  line-height: 3rem;
+}
+
+.atwho-view .cur {
+  background: $navbar-color;
+}
