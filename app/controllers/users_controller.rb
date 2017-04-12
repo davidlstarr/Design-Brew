@@ -2,7 +2,7 @@
 # Socify is an Open source Social network written in Ruby on Rails This file is licensed
 # under GNU GPL v2 or later. See the LICENSE.
 
-class HomeController < ApplicationController
+class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
   before_action :check_ownership, only: [:edit, :update]

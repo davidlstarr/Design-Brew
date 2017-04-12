@@ -8,9 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&amp;subset=cyrillic,cyrillic-ext,greek,latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/theme/monokai.css" />
   </head>
   <body>
-    <div id="robot"></div>
     <%= render 'shared/navbar' %>
     <% unless notice.blank? %>
       <div class="alert alert-info alert-dismissable alert-fixed">
@@ -27,6 +28,56 @@
     <div class="container">
       <%= yield %>
     </div>
-  </body>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/javascript/javascript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.js"></script>
+    <script>
+    function determineCodeMirrorType(cm)
+        {
+            if (cm.getMode().name == 'javascript')
+            {
+                checkAndSwitchToXML(cm, cm.getValue());
+            }
+            else if (cm.getMode().name == 'xml')
+            {
+                checkAndSwitchToJSON(cm, cm.getValue());
+            }
+        }
+
+        function checkAndSwitchToXML(cm, val)
+        {
+            if (/^\s*</.test(val))
+            {
+                cm.setOption("mode", "xml");
+                $('#modeType').html("XML");
+            }
+        }
+        function checkAndSwitchToJSON(cm, val)
+        {
+            if (!/^\s*</.test(val) && val.match(/\S/))
+            {
+                cm.setOption("mode", "javascript");
+                $('#modeType').html("JSON");
+            }
+        }
+
+        function buildCMInstance(mode, value)
+        {
+            var cm = CodeMirror.fromTextArea($('.post')[0], {
+                mode:mode,
+                value:value,
+                theme: "monokai",
+                onChange:function(cmInstance){
+                    determineCodeMirrorType(cmInstance);
+                }
+            });
+            return cm;
+        }
+        $(document).ready(function(){
+            //mode changing demo:  "http://codemirror.net/demo/changemode.html";
+            var cm = buildCMInstance("javascript");
+        });
+   </script>
+  </body>
 </html>
