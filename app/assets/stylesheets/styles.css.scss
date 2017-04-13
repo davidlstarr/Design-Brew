@@ -37,7 +37,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Source Code Pro', sans-serif;
+  font-family: 'Press Start 2P', sans-serif;
+  color: white;
 }
 a{
   color: $navbar-color;
@@ -48,6 +49,7 @@ label{
   font-size: 1rem;
 }
 em{
+  color: $navbar-color;
   font-size: 11px;
 }
 .vis_hidden{
