@@ -67,7 +67,6 @@
             var cm = CodeMirror.fromTextArea($('.post')[0], {
                 mode:mode,
                 value:value,
-                theme: "monokai",
                 onChange:function(cmInstance){
                     determineCodeMirrorType(cmInstance);
                 }
