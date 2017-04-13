@@ -78,7 +78,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: 'http://socifyapp.herokuapp.com' }
-
+    config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+    if ENV["RAILS_LOG_TO_STDOUT"].present?
+      logger           = ActiveSupport::Logger.new(STDOUT)
+      logger.formatter = config.log_formatter
+      config.logger = ActiveSupport::TaggedLogging.new(logger)
+    end
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.perform_deliveries = true
 
